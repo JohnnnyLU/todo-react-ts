@@ -1,4 +1,5 @@
 import { createRoot } from 'react-dom/client'
+import "./normalize.css"
 import './index.css'
 import {TodoPage} from "./TodoPage.tsx";
 
