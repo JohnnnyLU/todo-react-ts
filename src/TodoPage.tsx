@@ -11,7 +11,11 @@ export function TodoPage() {
     const savedTodos = localStorage.getItem("todos")
 
     if (savedTodos) {
-      return JSON.parse(savedTodos)
+      try {
+        return JSON.parse(savedTodos)
+      }catch {
+        return []
+      }
     }
 
     return []
@@ -71,7 +75,7 @@ export function TodoPage() {
         onChangeSearch={setSearchValue}
       />
       <TodoToolbar
-        totalCount={todos.length}
+        totalCount={filteredTodos.length}
         handleDeleteAllTodos={handleDeleteAllTodos}
       />
       <TodoList

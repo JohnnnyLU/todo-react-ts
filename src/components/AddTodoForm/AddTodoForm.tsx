@@ -13,7 +13,7 @@ export function AddTodoForm(props: Props) {
       event.preventDefault()
 
       if (value.trim() !== "") {
-        props.handleAddTodo(value)
+        props.handleAddTodo(value.trim())
         setValue("")
       }
     }}>
@@ -22,6 +22,7 @@ export function AddTodoForm(props: Props) {
         value={value}
         onChange={(event) => setValue(event.target.value)}
         placeholder="New task title"
+        autoFocus={true}
       />
       <button className={styles.button} type="submit">Add</button>
     </form>
