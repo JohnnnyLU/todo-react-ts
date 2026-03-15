@@ -8,6 +8,7 @@ import type {Todo} from "./types.ts";
 
 export function TodoPage() {
   const [todos, setTodos] = useState<Todo[]>([])
+  const [searchValue, setSearchValue] = useState("")
 
   const handleAddTodo = (value: string) => {
     const newTodo = {
@@ -44,17 +45,24 @@ export function TodoPage() {
     setTodos([])
   }
 
+  const filteredTodos = todos.filter((todo) => {
+    return todo.title.toLowerCase().includes(searchValue.toLowerCase())
+  })
+
   return (
     <div className="TodoPage">
       <TodoHeader />
       <AddTodoForm handleAddTodo={handleAddTodo}/>
-      <SearchBar />
+      <SearchBar
+        value={searchValue}
+        onChangeSearch={setSearchValue}
+      />
       <TodoToolbar
         totalCount={todos.length}
         handleDeleteAllTodos={handleDeleteAllTodos}
       />
       <TodoList
-        todos={todos}
+        todos={filteredTodos}
         handleToggleTodo={handleToggleTodo}
         handleDeleteTodo={handleDeleteTodo}
       />
