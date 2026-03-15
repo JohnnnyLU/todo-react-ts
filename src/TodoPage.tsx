@@ -3,11 +3,24 @@ import {AddTodoForm} from "./components/AddTodoForm/AddTodoForm.tsx";
 import {SearchBar} from "./components/SearchBar/SearchBar.tsx";
 import {TodoToolbar} from "./components/TodoToolbar/TodoToolbar.tsx";
 import {TodoList} from "./components/TodoList/TodoList.tsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import type {Todo} from "./types.ts";
 
 export function TodoPage() {
-  const [todos, setTodos] = useState<Todo[]>([])
+  const [todos, setTodos] = useState<Todo[]>(() => {
+    const savedTodos = localStorage.getItem("todos")
+
+    if (savedTodos) {
+      return JSON.parse(savedTodos)
+    }
+
+    return []
+  })
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos))
+  }, [todos])
+
   const [searchValue, setSearchValue] = useState("")
 
   const handleAddTodo = (value: string) => {
