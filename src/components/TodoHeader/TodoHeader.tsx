@@ -1,7 +1,7 @@
-//import styles from "./TodoHeader.module.css"
+import styles from "./TodoHeader.module.css"
 
 export function TodoHeader() {
   return (
-    <h1>To Do List</h1>
+    <h1 className={styles.title}>To Do List</h1>
   )
 }

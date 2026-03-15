@@ -1,4 +1,4 @@
-//import styles from "./AddTodoForm.module.css"
+import styles from "./AddTodoForm.module.css"
 import {useState} from "react";
 
 type Props = {
@@ -9,7 +9,7 @@ export function AddTodoForm(props: Props) {
   const [value, setValue] = useState("")
 
   return (
-    <form onSubmit={(event) => {
+    <form className={styles.form} onSubmit={(event) => {
       event.preventDefault()
 
       if (value.trim() !== "") {
@@ -18,11 +18,12 @@ export function AddTodoForm(props: Props) {
       }
     }}>
       <input
+        className={styles.input}
         value={value}
         onChange={(event) => setValue(event.target.value)}
         placeholder="New task title"
       />
-      <button type="submit">Add</button>
+      <button className={styles.button} type="submit">Add</button>
     </form>
   )
 }

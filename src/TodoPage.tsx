@@ -7,18 +7,7 @@ import {useState} from "react";
 import type {Todo} from "./types.ts";
 
 export function TodoPage() {
-  const [todos, setTodos] = useState<Todo[]>([
-    {
-      id: "1",
-      title: "Learn React",
-      completed: true,
-    },
-    {
-      id: "2",
-      title: "Learn TypeScript",
-      completed: false,
-    },
-  ])
+  const [todos, setTodos] = useState<Todo[]>([])
 
   const handleAddTodo = (value: string) => {
     const newTodo = {
@@ -45,13 +34,30 @@ export function TodoPage() {
     })
   }
 
+  function handleDeleteTodo(id: string) {
+    setTodos(prevTodos => {
+      return prevTodos.filter(todo => todo.id !== id)
+    })
+  }
+
+  function handleDeleteAllTodos() {
+    setTodos([])
+  }
+
   return (
     <div className="TodoPage">
       <TodoHeader />
       <AddTodoForm handleAddTodo={handleAddTodo}/>
       <SearchBar />
-      <TodoToolbar />
-      <TodoList todos={todos} handleToggleTodo={handleToggleTodo}/>
+      <TodoToolbar
+        totalCount={todos.length}
+        handleDeleteAllTodos={handleDeleteAllTodos}
+      />
+      <TodoList
+        todos={todos}
+        handleToggleTodo={handleToggleTodo}
+        handleDeleteTodo={handleDeleteTodo}
+      />
     </div>
   )
 }

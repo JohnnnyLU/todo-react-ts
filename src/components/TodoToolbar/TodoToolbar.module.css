@@ -1,0 +1,22 @@
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.count {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+}
+
+.clearButton {
+  padding: 0;
+  border: none;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #000;
+  background-color: transparent;
+  font-weight: 700;
+}
