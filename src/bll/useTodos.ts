@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import type {Todo} from "../types.ts";
+import type {Todo} from "./types.ts";
 
 export function useTodos() {
   const [todos, setTodos] = useState<Todo[]>(() => {
@@ -60,8 +60,6 @@ export function useTodos() {
   const filteredTodos = todos.filter((todo) => {
     return todo.title.toLowerCase().includes(searchValue.toLowerCase())
   })
-
-
 
   return {
     filteredTodos,

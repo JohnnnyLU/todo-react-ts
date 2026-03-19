@@ -1,8 +1,8 @@
-import {TodoHeader} from "./components/TodoHeader/TodoHeader.tsx";
-import {AddTodoForm} from "./components/AddTodoForm/AddTodoForm.tsx";
-import {SearchBar} from "./components/SearchBar/SearchBar.tsx";
-import {TodoToolbar} from "./components/TodoToolbar/TodoToolbar.tsx";
-import {TodoList} from "./components/TodoList/TodoList.tsx";
+import {TodoHeader} from "./ui/TodoHeader/TodoHeader.tsx";
+import {AddTodoForm} from "./ui/AddTodoForm/AddTodoForm.tsx";
+import {SearchBar} from "./ui/SearchBar/SearchBar.tsx";
+import {TodoToolbar} from "./ui/TodoToolbar/TodoToolbar.tsx";
+import {TodoList} from "./ui/TodoList/TodoList.tsx";
 import {useTodos} from "./bll/useTodos.ts";
 
 export function TodoPage() {

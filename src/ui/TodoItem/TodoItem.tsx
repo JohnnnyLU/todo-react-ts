@@ -1,5 +1,5 @@
 import styles from "./TodoItem.module.css"
-import type {Todo} from "../../types.ts";
+import type {Todo} from "../../bll/types.ts";
 
 type Props = {
   todo: Todo
